@@ -1,0 +1,736 @@
+{
+	"info": {
+		"_postman_id": "ee1ef7a3-3f2c-4cf4-8cef-73cdf780e090",
+		"name": "REST API for an e-commerce marketplace",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "3872427"
+	},
+	"item": [
+		{
+			"name": "auth",
+			"item": [
+				{
+					"name": "Register User",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\":\"test.seller1\",\n    \"password\":\"Qwerty@123\",\n    \"type\":\"seller\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:1818/api/v1/auth/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "1818",
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Register User",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"username\":\"test.seller1\",\n    \"password\":\"Qwerty@123\",\n    \"type\":\"seller\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:1818/api/v1/auth/register",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "1818",
+									"path": [
+										"api",
+										"v1",
+										"auth",
+										"register"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "211"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"d3-UBFdRc3bG+HpIupU9bmf0oWiYRo\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 13 Sep 2022 08:09:28 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"message\": \"Signed Up Successfully\",\n    \"result\": {\n        \"username\": \"test.seller1\",\n        \"password\": \"wHquvXb35mItqFHQmzrrH1KUuB1veXkxQ1Fpa2E0\",\n        \"type\": \"seller\",\n        \"salt\": \"oyy1CQika4\",\n        \"_id\": \"63203ab84019f665bb193fe7\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\":\"test.seller1\",\n    \"password\":\"Qwerty@123\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:1818/api/v1/auth/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "1818",
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Login",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"username\":\"test.seller1\",\n    \"password\":\"Qwerty@123\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:1818/api/v1/auth/login",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "1818",
+									"path": [
+										"api",
+										"v1",
+										"auth",
+										"login"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "255"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"ff-EsNEpqiRgYTS1pisnCHRWU+y5ak\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 13 Sep 2022 09:32:59 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjMyMDNhYjg0MDE5ZjY2NWJiMTkzZmU3IiwibmFtZSI6InRlc3Quc2VsbGVyMSIsInR5cGUiOiJzZWxsZXIiLCJpYXQiOjE2NjMwNjE1NzksImV4cCI6MTY2MzE0Nzk3OX0.emin2AuwDvdhwOYJaDpwZSfGWmE3Y04B8FPIKa5biFc\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "buyer",
+			"item": [
+				{
+					"name": "List of sellers",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:1818/api/v1/buyer/list-of-sellers",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "1818",
+							"path": [
+								"api",
+								"v1",
+								"buyer",
+								"list-of-sellers"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "List of sellers",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:1818/api/v1/buyer/list-of-sellers",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "1818",
+									"path": [
+										"api",
+										"v1",
+										"buyer",
+										"list-of-sellers"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "149"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"95-j2SHhs12GBzqfveu2pVfwAXIYS8\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 13 Sep 2022 09:15:57 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"result\": [\n        {\n            \"_id\": \"63203ab84019f665bb193fe7\",\n            \"username\": \"test.seller1\"\n        },\n        {\n            \"_id\": \"63203b494019f665bb193fe8\",\n            \"username\": \"test.seller2\"\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "get seller catalog",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:1818/api/v1/buyer/seller-catalog/:sellerId",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "1818",
+							"path": [
+								"api",
+								"v1",
+								"buyer",
+								"seller-catalog",
+								":sellerId"
+							],
+							"variable": [
+								{
+									"key": "sellerId",
+									"value": "63203ab84019f665bb193fe7"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "get seller catalog",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:1818/api/v1/buyer/seller-catalog/:sellerId",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "1818",
+									"path": [
+										"api",
+										"v1",
+										"buyer",
+										"seller-catalog",
+										":sellerId"
+									],
+									"variable": [
+										{
+											"key": "sellerId",
+											"value": "63203ab84019f665bb193fe7"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "318"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"13e-FMCZvm4/p7OTG1Als/Qnst0LmYA\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 13 Sep 2022 09:16:29 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"result\": [\n        {\n            \"_id\": \"63204a2d9760686c127c5144\",\n            \"userId\": \"63203ab84019f665bb193fe7\",\n            \"products\": [\n                {\n                    \"_id\": \"631f6c4249dd70199a530f09\",\n                    \"name\": \"product 1\",\n                    \"price\": 123.45\n                },\n                {\n                    \"_id\": \"63203987a9d65277dd12daaa\",\n                    \"name\": \"product 3\",\n                    \"price\": 193.45\n                },\n                {\n                    \"_id\": \"632039a1a9d65277dd12daac\",\n                    \"name\": \"product 5\",\n                    \"price\": 493.45\n                }\n            ]\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Place Order",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjMyMDNiNzc0MDE5ZjY2NWJiMTkzZmVhIiwibmFtZSI6InRlc3QuYnV5ZXIyIiwidHlwZSI6ImJ1eWVyIiwiaWF0IjoxNjYzMDYwNjM1LCJleHAiOjE2NjMxNDcwMzV9.dnJcgUNhbolXYgPgvRggc3ZzdMmdrQG8GjRdTU9_cjA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"products\":[\"631f6c4249dd70199a530f09\", \"632039a1a9d65277dd12daac\"],\n    \"catalogId\":\"63204a2d9760686c127c5144\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:1818/api/v1/buyer/create-order/:sellerId",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "1818",
+							"path": [
+								"api",
+								"v1",
+								"buyer",
+								"create-order",
+								":sellerId"
+							],
+							"variable": [
+								{
+									"key": "sellerId",
+									"value": "63203ab84019f665bb193fe7"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Place Order",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"products\":[\"631f6c4249dd70199a530f09\", \"632039a1a9d65277dd12daac\"],\n    \"catalogId\":\"63204a2d9760686c127c5144\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:1818/api/v1/buyer/create-order/:sellerId",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "1818",
+									"path": [
+										"api",
+										"v1",
+										"buyer",
+										"create-order",
+										":sellerId"
+									],
+									"variable": [
+										{
+											"key": "sellerId",
+											"value": "631f76e3b141d54c67caec55"
+										}
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "279"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"117-TQw+jUXbIEf9lRqcsLf/x4TUOV0\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 13 Sep 2022 09:22:38 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"message\": \"Order Placed Successfully\",\n    \"result\": {\n        \"buyerId\": \"63203b774019f665bb193fea\",\n        \"sellerId\": \"631f76e3b141d54c67caec55\",\n        \"products\": [\n            \"631f6c4249dd70199a530f09\",\n            \"632039a1a9d65277dd12daac\"\n        ],\n        \"catalogId\": \"63204a2d9760686c127c5144\",\n        \"_id\": \"63204bdeac00a06d1c894af2\"\n    }\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "seller",
+			"item": [
+				{
+					"name": "Create catalog",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjMyMDNhYjg0MDE5ZjY2NWJiMTkzZmU3IiwibmFtZSI6InRlc3Quc2VsbGVyMSIsInR5cGUiOiJzZWxsZXIiLCJpYXQiOjE2NjMwNTcxNTAsImV4cCI6MTY2MzE0MzU1MH0.5cUL_h1jJ34d8wR7lIuKfQAA0vDOA8iRlVkgDo09mKA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"products\":[\"631f6c4249dd70199a530f09\", \"63203987a9d65277dd12daaa\", \"632039a1a9d65277dd12daac\"]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:1818/api/v1/seller/create-catalog",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "1818",
+							"path": [
+								"api",
+								"v1",
+								"seller",
+								"create-catalog"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Create catalog",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"products\":[\"631f6c4249dd70199a530f09\", \"63203987a9d65277dd12daaa\", \"632039a1a9d65277dd12daac\"]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:1818/api/v1/seller/create-catalog",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "1818",
+									"path": [
+										"api",
+										"v1",
+										"seller",
+										"create-catalog"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "236"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"ec-Z3ycq3Bz/YJ6pnkvk0IRFwDGois\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 13 Sep 2022 09:15:25 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"message\": \"Your Catalog Created Successfully\",\n    \"result\": {\n        \"userId\": \"63203ab84019f665bb193fe7\",\n        \"products\": [\n            \"631f6c4249dd70199a530f09\",\n            \"63203987a9d65277dd12daaa\",\n            \"632039a1a9d65277dd12daac\"\n        ],\n        \"_id\": \"63204a2d9760686c127c5144\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Get Orders",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjMyMDNhYjg0MDE5ZjY2NWJiMTkzZmU3IiwibmFtZSI6InRlc3Quc2VsbGVyMSIsInR5cGUiOiJzZWxsZXIiLCJpYXQiOjE2NjMwODgzNzcsImV4cCI6MTY2MzE3NDc3N30.HJ-Lzh7AtfpsoGTdA8pRdeDeZsCoHDDXeUM_qf-CVE8",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:1818/api/v1/seller/orders",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "1818",
+							"path": [
+								"api",
+								"v1",
+								"seller",
+								"orders"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get Orders",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:1818/api/v1/seller/orders",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "1818",
+									"path": [
+										"api",
+										"v1",
+										"seller",
+										"orders"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "327"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"147-E9p98ei65+b705NhqrWJxFt5ZEY\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 13 Sep 2022 17:00:50 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"result\": [\n        {\n            \"_id\": \"63204cbdac00a06d1c894af3\",\n            \"buyerId\": \"63203b774019f665bb193fea\",\n            \"sellerId\": \"63203ab84019f665bb193fe7\",\n            \"products\": [\n                {\n                    \"_id\": \"631f6c4249dd70199a530f09\",\n                    \"name\": \"product 1\",\n                    \"price\": 123.45\n                },\n                {\n                    \"_id\": \"632039a1a9d65277dd12daac\",\n                    \"name\": \"product 5\",\n                    \"price\": 493.45\n                }\n            ],\n            \"catalogId\": \"63204a2d9760686c127c5144\"\n        }\n    ]\n}"
+						}
+					]
+				}
+			]
+		}
+	]
+}
