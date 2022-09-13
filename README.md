@@ -1,53 +1,29 @@
-# Build a REST API with Node.js, Mongoose & TypeScript
+# Assignment:Build a REST API for an e-commerce marketplace.
 
-Note: This repository and video has been recreated
-- New repository: https://github.com/TomDoesTech/REST-API-Tutorial-Updated
-- New video: https://www.youtube.com/watch?v=BWUi6BS9T5Y
-
-Article: https://tomanagle.medium.com/build-a-rest-api-with-node-js-typescript-mongodb-b6c898d70d61
-Video: https://youtu.be/goUbHgAzPCs
-
-Note: This repository includes the [postman collection for the finished API](postman_collection.json)
-
-## Who is this tutorial for?
-* Junior to mid-level developers
-* Anyone interested in building REST APIs with TypeScript
-
-## Why?
-* REST APIs are the staple of the web development industry
-* Knowing how REST APIs is important for both back and frontend developers
-* There's no better way to understand how they work than to build one
-
-## Concepts
-* REST API principals
-    * CRUD
-    * HTTP methods
-    * What REST is and is not
-
-* JWT & refresh tokens
-
-## Technologies
+## Technologies Used
 * Node.js
-* MongoDB with Mongoose
+* MongoDB with Native Driver with database utility
 * TypeScript
 * Express.js & Express.js middleware
 
-## Video structure
-1. What are we going to build
-2. Bootstrap application
-4. Build out registration
-5. Build out post CRUD operations
+## Functionalities covered
+1. Buyers and sellers can register and login to the system
+2. Sellers can build a catalog of items, with each item having a name and price
+3. Buyers can GET a list of sellers
+4. Buyers can GET a specific seller's catalog (list of items)
+5. Buyers can create an Order that contains a list of items from the seller's catalog
+6. Sellers can GET a list of all orders they've received
 
-![](./diagram.png)
 
-## Let's keep in touch
-- [Subscribe on YouTube](https://www.youtube.com/TomDoesTech)
-- [Discord](https://discord.gg/4ae2Esm6P7)
-- [Twitter](https://twitter.com/tomdoes_tech)
-- [TikTok](https://www.tiktok.com/@tomdoestech)
-- [Facebook](https://www.facebook.com/tomdoestech)
-- [Instagram](https://www.instagram.com/tomdoestech)
+## Postman Api Documentation: (https://documenter.getpostman.com/view/3872427/2s7YYsbPVu)
 
-[Buy me a Coffee](https://www.buymeacoffee.com/tomn)
+## Steps To Run the Api locally
 
-[Sign up to DigitalOcean 💖](https://m.do.co/c/1b74cb8c56f4)
+make sure to have install node.js locally.
+
+1. Download and move to the project folder root
+2. run **npm i** to install all dependencies
+3. run **npm run dev** to start the server.
+
+
+you are done! server is up and running :)
