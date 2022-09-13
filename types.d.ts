@@ -1,2 +1,0 @@
-
-enum Type { 'buyer', 'seller' }

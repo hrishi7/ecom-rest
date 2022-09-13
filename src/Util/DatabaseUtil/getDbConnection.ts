@@ -14,7 +14,6 @@ let result: Result = {
 };
 
 export default async (): Promise<mongodb.Db> => {
-    console.log(config.get("dbUri"))
     if (result.err === null && result.res === null) {
         await MongoClient.connect(config.get("dbUri"), {
             useNewUrlParser: true,

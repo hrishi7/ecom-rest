@@ -1,11 +1,9 @@
 import { Request, Response } from 'express';
-import { Buffer } from 'buffer';
-
-import dbReadResult from '../../Util/DatabaseUtil/Read/getDbReadResult';
 import { User } from '../../CollectionDefinition/User';
 import dbInsertOne from '../../Util/DatabaseUtil/Insert/InsertOne/getDbInsertResult';
 import { ObjectID } from 'mongodb';
-const crypto = require('crypto');
+
+import dbReadResultAggregate from '../../Util/DatabaseUtil/Read/getDbReadResultAggregate';
 
 interface Body {
     products: string[];
@@ -16,7 +14,7 @@ export const createCatalog = async (req: Request, res: Response) => {
     const { products } = req.body as Body;
     try {
         const value = {
-            userId: new ObjectID(_id),
+            userId: _id,
             products: products.map(id => new ObjectID(id))
         }
         const response_value: any = await dbInsertOne('catalogs', value);
@@ -33,8 +31,21 @@ export const createCatalog = async (req: Request, res: Response) => {
 export const getOrders = async (req: Request, res: Response) => {
     const { _id } = req.user as User;
     try {
-        const orders: any = await dbReadResult('orders', { sellerId: new ObjectID(_id) });
-        res.status(201).json({ success: true, result: orders })
+        let pipeline = [
+            {
+                $match: { sellerId: _id }
+            },
+            {
+                $lookup: {
+                    from: "products",
+                    localField: "products",
+                    foreignField: "_id",
+                    as: "products"
+                }
+            }
+        ]
+        const orders: any = await dbReadResultAggregate('orders', pipeline);
+        res.status(200).json({ success: true, result: orders })
     } catch (err) {
         console.error(err);
         res.status(500).json({

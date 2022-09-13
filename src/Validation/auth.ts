@@ -3,6 +3,7 @@ import jwt from 'jsonwebtoken';
 import config from 'config';
 import dbReadResult from '../Util/DatabaseUtil/Read/getDbReadResult';
 import { ObjectID } from 'mongodb'
+import { Type } from '../CollectionDefinition/User';
 
 //Protect route
 export const validateRegisterRequest = async (req: Request, res: Response, next: NextFunction) => {
@@ -26,13 +27,12 @@ export const validateRegisterRequest = async (req: Request, res: Response, next:
 
         const userExist = await dbReadResult('users', { username });
 
-        if (userExist) {
+        if (userExist && userExist.length > 0) {
             return res.status(400).json({ success: false, message: 'username already used. Please try another one.' })
         }
         next();
 
     } catch (error) {
-        console.log(error)
         return res.status(500).json({ success: false, message: 'internal server error' });
     }
 };

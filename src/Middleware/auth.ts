@@ -11,7 +11,6 @@ export const protect = async (req: Request, res: Response, next: NextFunction) =
     if (req.headers.authorization && req.headers.authorization.startsWith('Bearer')) {
         token = req.headers.authorization.split(' ')[1];
     }
-    console.log(req.headers, token)
 
     //Make sure token exists
     if (!token) {
@@ -21,12 +20,13 @@ export const protect = async (req: Request, res: Response, next: NextFunction) =
         //verify token
         const decoded: any = jwt.verify(token, config.get('secret'));
 
-        req.user = await dbReadResult('users', { _id: new ObjectID(decoded.id) });
 
+        const user = await dbReadResult('users', { _id: new ObjectID(decoded.user_id) });
+
+        req.user = user[0];
         next();
 
     } catch (error) {
-        console.log(error)
         return res.status(401).json({ success: false, message: 'Not authorize to access this route' });
     }
 };

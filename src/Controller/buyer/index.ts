@@ -1,13 +1,10 @@
 import { Request, Response } from 'express';
-import { Buffer } from 'buffer';
 
 import dbReadResult from '../../Util/DatabaseUtil/Read/getDbReadResult';
 import { User } from '../../CollectionDefinition/User';
 import dbInsertOne from '../../Util/DatabaseUtil/Insert/InsertOne/getDbInsertResult';
 import { ObjectID } from 'mongodb';
 import dbReadResultAggregate from '../../Util/DatabaseUtil/Read/getDbReadResultAggregate';
-const crypto = require('crypto');
-import dbConnection from '../../Util/DatabaseUtil/getDbConnection';
 
 interface Body {
     products: ObjectID[];
@@ -63,7 +60,7 @@ export const createOrder = async (req: Request, res: Response) => {
         const { _id } = req.user as User;
 
         const value = {
-            buyerId: new ObjectID(_id),
+            buyerId: _id,
             sellerId: new ObjectID(sellerId),
             products: products.map((id: string) => new ObjectID(id)),
             catalogId: new ObjectID(catalogId),

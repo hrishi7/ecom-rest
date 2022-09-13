@@ -61,7 +61,7 @@ export const login = async (req: Request, res: Response) => {
                         } else {
                             res.status(200).json({
                                 success: true,
-                                token: 'Bearer ' + token
+                                token: token
                             });
                         }
                     }

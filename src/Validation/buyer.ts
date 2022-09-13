@@ -19,26 +19,23 @@ export const validateOrderRequest = async (req: Request, res: Response, next: Ne
 
     }
 
-
-
-
     try {
 
-        const catalog = await dbReadResult('catalogs', { _id: new ObjectID(catalogId) }) as unknown as Catalog;
+        const catalog = await dbReadResult('catalogs', { _id: new ObjectID(catalogId) }) as unknown as Catalog[];
 
-        if (!catalog) {
-
+        if (!catalog || catalog.length == 0) {
             return res.status(400).json({ success: false, message: 'catalog not found' })
         }
-        let catalogProducts = catalog.products.map(p => p.toString())
+        let catalogProducts = catalog[0].products.map(p => p.toString())
 
         products.forEach((product: string) => {
-            if (!catalogProducts.includes(product)) return res.status(400).json({ success: false, message: 'Please select only products from one catalog in one order' })
+            if (!catalogProducts.includes(product)) {
+                return res.status(400).json({ success: false, message: 'Please select only products from one catalog in one order' })
+            }
         });
         next();
 
     } catch (error) {
-        console.log(error)
         return res.status(500).json({ success: false, message: 'internal server error' });
     }
 };

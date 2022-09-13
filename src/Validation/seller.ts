@@ -15,9 +15,9 @@ export const validateCreateCatalogRequest = async (req: Request, res: Response, 
 
     try {
 
-        const catalog = await dbReadResult('catalogs', { userId: new ObjectID(_id) }) as unknown as Catalog;
+        const catalog = await dbReadResult('catalogs', { userId: new ObjectID(_id) }) as unknown as Catalog[];
 
-        if (catalog) {
+        if (catalog && catalog.length > 0) {
 
             return res.status(400).json({ success: false, message: 'catalog already exist for this seller!' })
         }
@@ -25,7 +25,6 @@ export const validateCreateCatalogRequest = async (req: Request, res: Response, 
         next();
 
     } catch (error) {
-        console.log(error)
         return res.status(500).json({ success: false, message: 'internal server error' });
     }
 };
