@@ -9,6 +9,14 @@ interface Body {
     products: string[];
 }
 
+/**
+ * 
+ * @param req 
+ * @param products - array of ids 
+ * @param res 
+ * @access private
+ * @returns success message
+ */
 export const createCatalog = async (req: Request, res: Response) => {
     const { _id } = req.user as User;
     const { products } = req.body as Body;
@@ -28,6 +36,13 @@ export const createCatalog = async (req: Request, res: Response) => {
     }
 };
 
+/**
+ * 
+ * @param req 
+ * @param res 
+ * @access private
+ * @returns list of placed order to authenticated seller
+ */
 export const getOrders = async (req: Request, res: Response) => {
     const { _id } = req.user as User;
     try {

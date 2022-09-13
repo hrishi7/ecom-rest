@@ -15,6 +15,12 @@ interface Body {
     type?: string;
 }
 
+/**
+ * 
+ * @param req 
+ * @param res 
+ * @returns token if successful login
+ */
 export const login = async (req: Request, res: Response) => {
     const { username, password } = req.body as Body;
     const query = { username: username };
@@ -77,6 +83,13 @@ export const login = async (req: Request, res: Response) => {
     }
 };
 
+/**
+ * 
+ * @param req 
+ * @param res 
+ * @returns success message on successful registration
+ */
+
 export const register = async (req: Request, res: Response) => {
     const { username, password, type } = req.body as Body;
     try {
@@ -98,8 +111,11 @@ export const register = async (req: Request, res: Response) => {
     }
 };
 
-//fn -> hashSSHA, hash user input password(string) to encrypted password
-//with salt of SHA1 mechanism.
+/**
+ * 
+ * @param password string
+ * @returns  object with salt value & encrypted password (its uses SHA1 mechanism to generate encrypted password)
+ */
 const hashSSHA = (password: string) => {
     let salt = crypto
         .createHash('sha1')

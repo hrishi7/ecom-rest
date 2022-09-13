@@ -1,11 +1,14 @@
 import { Request, Response, NextFunction } from 'express';
-import jwt from 'jsonwebtoken';
-import config from 'config';
 import dbReadResult from '../Util/DatabaseUtil/Read/getDbReadResult';
-import { ObjectID } from 'mongodb'
 import { Type } from '../CollectionDefinition/User';
 
-//Protect route
+/**
+ * 
+ * @param req 
+ * @param res 
+ * @param next 
+ * @description this is a middleware function to validate request for user registration
+ */
 export const validateRegisterRequest = async (req: Request, res: Response, next: NextFunction) => {
     const { username, password, type } = req.body as { username: string, password: string, type: string }
 
@@ -37,6 +40,13 @@ export const validateRegisterRequest = async (req: Request, res: Response, next:
     }
 };
 
+/**
+ * 
+ * @param req 
+ * @param res 
+ * @param next 
+ * @description this is a middleware function to validate request for user login
+ */
 export const validateLoginRequest = async (req: Request, res: Response, next: NextFunction) => {
     const { username, password } = req.body as { username: string, password: string }
 

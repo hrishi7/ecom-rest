@@ -8,5 +8,5 @@ export interface User {
     password: string;
     salt: string;
     type: Type
-    createdAt: Date;
+    createdAt?: Date;
 }

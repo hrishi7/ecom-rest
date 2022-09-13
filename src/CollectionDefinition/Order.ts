@@ -6,7 +6,7 @@ export interface Order {
     sellerId: ObjectID;
     products: ObjectID[];
     catalogId: ObjectID;
-    createdAt: Date;
-    updatedAt: Date;
-    orderedOn: Date;
+    createdAt?: Date;
+    updatedAt?: Date;
+    orderedOn?: Date;
 }

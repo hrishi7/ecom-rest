@@ -3,7 +3,13 @@ import dbReadResult from '../Util/DatabaseUtil/Read/getDbReadResult';
 import { ObjectID } from 'mongodb'
 import { Catalog } from '../CollectionDefinition/Catalog';
 
-//Protect route
+/**
+ * 
+ * @param req 
+ * @param res 
+ * @param next 
+ * @description this is a middleware function to validate request for place order by buyer
+ */
 export const validateOrderRequest = async (req: Request, res: Response, next: NextFunction) => {
     const { sellerId } = req.params;
     const { products, catalogId } = req.body;

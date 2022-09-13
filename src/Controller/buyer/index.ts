@@ -10,6 +10,13 @@ interface Body {
     products: ObjectID[];
 }
 
+/**
+ * 
+ * @param req 
+ * @param res 
+ * @access public
+ * @returns list of sellers available in this E-commerce marketplace platform
+ */
 export const getListOfSellers = async (req: Request, res: Response) => {
     try {
 
@@ -24,6 +31,13 @@ export const getListOfSellers = async (req: Request, res: Response) => {
     }
 };
 
+/**
+ * 
+ * @param req , sellerId
+ * @param res 
+ * @access public
+ * @returns get catalog with list of products of requested seller
+ */
 export const getSellerCatalog = async (req: Request, res: Response) => {
     try {
         const { sellerId } = req.params;
@@ -52,6 +66,18 @@ export const getSellerCatalog = async (req: Request, res: Response) => {
         });
     }
 };
+
+/**
+ * 
+ * @param req ,
+ * @params sellerId,
+ * @params catalogId,
+ * @params products - array of ids
+ * @param res 
+ * @access private
+ * @description this function help to place an order for the specified seller by authenticated buyer
+ * @returns success message
+ */
 
 export const createOrder = async (req: Request, res: Response) => {
     try {

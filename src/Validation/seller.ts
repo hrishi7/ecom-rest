@@ -4,7 +4,13 @@ import { ObjectID } from 'mongodb'
 import { Catalog } from '../CollectionDefinition/Catalog';
 import { User } from '../CollectionDefinition/User';
 
-//Protect route
+/**
+ * 
+ * @param req 
+ * @param res 
+ * @param next 
+ * @description this is a middleware function to validate request for creating catalog for seller
+ */
 export const validateCreateCatalogRequest = async (req: Request, res: Response, next: NextFunction) => {
     const { _id } = req.user as User;
     const { products } = req.body;

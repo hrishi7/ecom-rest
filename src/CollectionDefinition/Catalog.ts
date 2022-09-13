@@ -5,6 +5,6 @@ export interface Catalog {
     userId: ObjectID;
     products: ObjectID[];
     thumbnails?: string;
-    createdAt: Date;
-    updatedAt: Date;
+    createdAt?: Date;
+    updatedAt?: Date;
 }

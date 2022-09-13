@@ -4,7 +4,13 @@ import config from 'config';
 import dbReadResult from '../Util/DatabaseUtil/Read/getDbReadResult';
 import { ObjectID } from 'mongodb'
 
-//Protect route
+/**
+ * 
+ * @param req 
+ * @param res 
+ * @param next 
+ * @description this is middleware function to check whether user is authenticated or not 
+ */
 export const protect = async (req: Request, res: Response, next: NextFunction) => {
     let token;
     //set token from bearer token in header
@@ -23,10 +29,12 @@ export const protect = async (req: Request, res: Response, next: NextFunction) =
 
         const user = await dbReadResult('users', { _id: new ObjectID(decoded.user_id) });
 
+        if (!user || user.length == 0) return res.status(400).json({ success: false, message: 'User not found! or Invalid Authentication Token' })
+
         req.user = user[0];
         next();
 
     } catch (error) {
-        return res.status(401).json({ success: false, message: 'Not authorize to access this route' });
+        return res.status(401).json({ success: false, message: 'internal server error' });
     }
 };

@@ -5,5 +5,5 @@ export interface Product {
     name: string;
     price: number;
     images?: string[];
-    createdAt: Date;
+    createdAt?: Date;
 }
