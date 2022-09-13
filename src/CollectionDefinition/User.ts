@@ -1,6 +1,6 @@
 import { ObjectID } from 'mongodb';
 
-enum Type { 'buyer', 'seller' }
+
 
 export interface User {
     _id: ObjectID;

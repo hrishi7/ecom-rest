@@ -21,7 +21,7 @@ export const protect = async (req: Request, res: Response, next: NextFunction) =
         //verify token
         const decoded: any = jwt.verify(token, config.get('secret'));
 
-        req.user = await dbReadResult('sellers', { _id: new ObjectID(decoded.id) });
+        req.user = await dbReadResult('users', { _id: new ObjectID(decoded.id) });
 
         next();
 
